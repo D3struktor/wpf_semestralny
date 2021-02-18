@@ -1,0 +1,115 @@
+﻿<Window x:Class="wpf_semestralny.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpf_semestralny"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="401.087" Width="730.299"
+        AllowsTransparency="True" Background="Transparent"
+        WindowStyle="None" ResizeMode="NoResize"
+        MouseDown="MainWindow_OnMouseDown">
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+
+            <Border CornerRadius="10" Grid.RowSpan="2">
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#9a9aa6" Offset="0.1"/>
+                        <GradientStop Color="#aa23ba" Offset="1.5"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+
+
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="Krakowski Klub Muzyczny"
+                           FontWeight="Light"
+                           FontFamily="helvetica"
+                           FontSize="22"
+                           Foreground="White"
+                           HorizontalAlignment="Center" Margin="248,0" Height="37"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" >
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Login:"
+                           FontWeight="Light"
+                           FontFamily="helvetica"
+                           FontSize="22"
+                           Foreground="White"
+                           HorizontalAlignment="Right"
+                               Margin="50 0 0 0"
+                               Width="88"/>
+                    <TextBox FontFamily="Helvetica"
+                             Name="txtUsername"
+                             FontWeight="Light"
+                             
+                             FontSize="20"
+                             HorizontalAlignment="Center"
+                             Foreground="White"
+                             Background="Transparent"
+                             BorderThickness="0"
+                             Width="218"
+                             HorizontalContentAlignment="Left"
+                             Opacity="0.5"
+                             Height="26"
+                             Margin="63,0,0,0" RenderTransformOrigin="1.206,0.66"/>
+
+                </StackPanel>
+                <Border
+                        Height="2"
+                        Background="White"
+                        Opacity="0.5" Margin="179,0,307,0"/>
+
+
+
+                <StackPanel Orientation="Horizontal" Margin="0,00,0,0">
+                    <TextBlock Text="Password"
+                                Margin="50 0 0 0"
+                           FontWeight="Light"
+                           FontFamily="helvetica"
+                           FontSize="22"
+                           Foreground="White"
+                           HorizontalAlignment="Right"
+                               Width="88"/>
+                    <PasswordBox FontFamily="Helvetica"
+                                 x:Name="txtPassword"
+                             FontWeight="Light"
+                             
+                             FontSize="20"
+                             HorizontalAlignment="Center"
+                             Foreground="White"
+                             Background="Transparent"
+                             BorderThickness="0"
+                             Width="216"
+                             HorizontalContentAlignment="Left"
+                             Opacity="0.5"
+                             Height="26"
+                             Margin="63,0,0,0"/>
+                </StackPanel>
+                <Border
+                        Height="2"
+                        Background="White"
+                        Opacity="0.5" Margin="179,0,307,0"/>
+
+
+                <StackPanel Orientation="Horizontal" Margin="0,50,0,0">
+                    <Button Name="btnLogin" Click="btnLogin_Click" Width="100" Height="40" Content="LOGIN" Margin="60,0,60,0" Background="LightPink"/>
+                </StackPanel>
+
+            </StackPanel>
+
+
+
+
+
+
+        </Grid>
+    </Grid>
+</Window>

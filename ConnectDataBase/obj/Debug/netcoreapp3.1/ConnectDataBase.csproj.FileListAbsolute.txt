@@ -1,0 +1,14 @@
+C:\Users\D3struktor\source\repos\wpf_semestralny\ConnectDataBase\bin\Debug\netcoreapp3.1\ConnectDataBase.deps.json
+C:\Users\D3struktor\source\repos\wpf_semestralny\ConnectDataBase\bin\Debug\netcoreapp3.1\ConnectDataBase.dll
+C:\Users\D3struktor\source\repos\wpf_semestralny\ConnectDataBase\obj\Debug\netcoreapp3.1\ConnectDataBase.csprojAssemblyReference.cache
+C:\Users\D3struktor\source\repos\wpf_semestralny\ConnectDataBase\obj\Debug\netcoreapp3.1\ConnectDataBase.AssemblyInfoInputs.cache
+C:\Users\D3struktor\source\repos\wpf_semestralny\ConnectDataBase\obj\Debug\netcoreapp3.1\ConnectDataBase.AssemblyInfo.cs
+C:\Users\D3struktor\source\repos\wpf_semestralny\ConnectDataBase\obj\Debug\netcoreapp3.1\ConnectDataBase.csproj.CoreCompileInputs.cache
+C:\Users\D3struktor\source\repos\wpf_semestralny\ConnectDataBase\bin\Debug\netcoreapp3.1\ConnectDataBase.runtimeconfig.json
+C:\Users\D3struktor\source\repos\wpf_semestralny\ConnectDataBase\bin\Debug\netcoreapp3.1\ConnectDataBase.runtimeconfig.dev.json
+C:\Users\D3struktor\source\repos\wpf_semestralny\ConnectDataBase\obj\Debug\netcoreapp3.1\ConnectDataBase.genruntimeconfig.cache
+C:\Users\D3struktor\source\repos\wpf_semestralny\ConnectDataBase\bin\Debug\netcoreapp3.1\ConnectDataBase.pdb
+C:\Users\D3struktor\source\repos\wpf_semestralny\ConnectDataBase\obj\Debug\netcoreapp3.1\ConnectDataBase.dll
+C:\Users\D3struktor\source\repos\wpf_semestralny\ConnectDataBase\obj\Debug\netcoreapp3.1\ConnectDataBase.pdb
+C:\Users\D3struktor\source\repos\wpf_semestralny\ConnectDataBase\bin\Debug\netcoreapp3.1\ClubDB.mdf
+C:\Users\D3struktor\source\repos\wpf_semestralny\ConnectDataBase\bin\Debug\netcoreapp3.1\ClubDB_log.ldf
