@@ -8,7 +8,7 @@
         <EntityTypeShape EntityType="DatabaseModel.Employers" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.Items" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.Performance" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.Performance_staff" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Performance_staff" Width="1.5" PointX="6.125" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="DatabaseModel.FK_Performance_staff__Employers" ManuallyRouted="false" />
         <AssociationConnector Association="DatabaseModel.FK_Performance_staff__Performance" ManuallyRouted="false" />
         <AssociationConnector Association="DatabaseModel.Performance_items" ManuallyRouted="false" />
