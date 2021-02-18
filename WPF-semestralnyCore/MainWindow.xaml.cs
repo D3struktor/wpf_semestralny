@@ -33,22 +33,6 @@ namespace wpf_semestralny
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
-        /*  DatabaseEntities login = new DatabaseEntities();
-            private void btnLogin_Click(object sender, EventArgs e)
-                 {
-                    foreach (var username in Database)
-                if(Employers.username == txtUsername && Employers.Password == txtPassword)
-                {
-                    MainWindow dashboard = new MainWindow();
-                    dashboard.Show();
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Login or Password is incorrect");
-                }
-        
-        */
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -68,37 +52,6 @@ namespace wpf_semestralny
                 this.Close();
             }
 
-            //SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\Database; Initial Catalog=Database; Integrated Secutity=true;");
-            //try
-            //{
-            //    if (sqlCon.State == ConnectionState.Closed)
-            //        sqlCon.Open();
-            //    String query = "SELECT COUNT(1) FROM Employers WHERE Username=@Username and Password=@Password";
-            //    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-            //    sqlCmd.CommandType = CommandType.Text;
-            //    sqlCmd.Parameters.AddWithValue("@Username", txtUsername.Text);
-            //    sqlCmd.Parameters.AddWithValue("@Password", txtPassword.Password);
-            //    int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
-            //    if (count == 1)
-            //    {
-            //        MainWindow dashboard = new MainWindow();
-            //        dashboard.Show();
-            //        this.Close();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Login or Password is incorrect");
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-
-            //    MessageBox.Show(ex.Message);
-            //}
-            //finally
-            //{
-
-            //}
         }
     }
 }

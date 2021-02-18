@@ -31,6 +31,7 @@ namespace wpf_semestralny
 
         private List<WyposazenieInfo> wyposazenie = new List<WyposazenieInfo>();
 
+
         private void ViewData()
         {
             using var db = new UsersDB();
@@ -113,6 +114,13 @@ namespace wpf_semestralny
             {
                 Item = item;
             }
+
+        }
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            new Dashboard().Show();
+            this.Close();
+
         }
     }
 }

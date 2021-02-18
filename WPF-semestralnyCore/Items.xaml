@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpf_semestralny"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="800">
+        Title="Magazyn" Height="450" Width="800">
     <Grid>
         <Border CornerRadius="10">
             <Border.Background>
@@ -15,12 +15,14 @@
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
-
-        <DataGrid x:Name="Wyposazenie" Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top" CanUserAddRows="True" CanUserDeleteRows="False" AutoGenerateColumns="False" Width="671" Margin="119,29,0,0">
+        <StackPanel>
+            <Button Name="btnBack" Click="btnBack_Click" Width="100" Height="40" Content="Wróć" Margin="20,3,670,0" Background="LightPink"/>
+        </StackPanel>
+        <DataGrid x:Name="Wyposazenie" Background="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Top" CanUserAddRows="True" CanUserDeleteRows="False" AutoGenerateColumns="False" Width="800" Margin="0,49,0,0" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Path=ID}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Nazwa" Binding="{Binding Path=ItemName}"/>
-                <DataGridTextColumn Header="Ilosc" Binding="{Binding Path=Count}"/>
+                <DataGridTextColumn Header="Nazwa Sprzętu" Binding="{Binding Path=ItemName}"/>
+                <DataGridTextColumn Header="Ilość w magazynie" Binding="{Binding Path=Count}"/>
 
                 <DataGridTemplateColumn Header="Usuń">
                     <DataGridTemplateColumn.CellTemplate>

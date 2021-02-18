@@ -165,7 +165,13 @@ namespace wpf_semestralny
                 refresh()
                 ;
             }
+          
         }
+        private void btnBack1_Click(object sender, RoutedEventArgs e)
+        {
+            new Dashboard().Show();
+            this.Close();
 
+        }
     }
 }

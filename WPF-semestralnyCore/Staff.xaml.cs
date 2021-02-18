@@ -160,6 +160,13 @@ namespace wpf_semestralny
             {
                 Employer = employer;
             }
+            
+        }
+        private void btnBack2_Click(object sender, RoutedEventArgs e)
+        {
+            new Dashboard().Show();
+            this.Close();
+
         }
     }
 }

@@ -16,14 +16,16 @@
                     </LinearGradientBrush>
                 </Border.Background>
             </Border>
-
-            <DataGrid x:Name="Pracownicy" Background="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Center" CanUserAddRows="True" CanUserDeleteRows="False" AutoGenerateColumns="False">
+            <StackPanel>
+                <Button Name="btnBack" Click="btnBack2_Click" Width="100" Height="40" Content="Wróć" Margin="20,3,670,0" Background="LightPink"/>
+            </StackPanel>
+            <DataGrid x:Name="Pracownicy" Background="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Top" CanUserAddRows="True" CanUserDeleteRows="False" AutoGenerateColumns="False" Margin="0,43,0,0" Width="800">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Imie" Binding="{Binding Path=Employer_name}"/>
                     <DataGridTextColumn Header="Nazwisko" Binding="{Binding Path=Employer_last_name}"/>
                     <DataGridTextColumn Header="Username" Binding="{Binding Path=Username}"/>
                     <DataGridTextColumn Header="Password" Binding="{Binding Path=Password}"/>
-                    <DataGridTemplateColumn Header="Data">
+                    <DataGridTemplateColumn Header="Data Zatrudnienia">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <DatePicker SelectedDateFormat="Long" SelectedDate="{Binding Path=Employment_date}" FirstDayOfWeek="Monday"/>

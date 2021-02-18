@@ -15,13 +15,15 @@
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
-
-        <DataGrid x:Name="Wystepy" Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top" CanUserAddRows="True" CanUserDeleteRows="False" AutoGenerateColumns="False" Width="800">
+        <StackPanel>
+            <Button Name="btnBack" Click="btnBack1_Click" Width="100" Height="40" Content="Wróć" Margin="20,3,670,0" Background="LightPink"/>
+        </StackPanel>
+        <DataGrid x:Name="Wystepy" Background="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Top" CanUserAddRows="True" CanUserDeleteRows="False" AutoGenerateColumns="False" Width="800" Margin="0,48,0,0">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Path=ID}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Koncert" Binding="{Binding Path=Name}"/>
-                <DataGridTextColumn Header="Cena" Binding="{Binding Path=Cost}"/>
-                <DataGridTemplateColumn Header="Data">
+                <DataGridTextColumn Header="Zespół" Binding="{Binding Path=Name}"/>
+                <DataGridTextColumn Header="Cena wstępu" Binding="{Binding Path=Cost}"/>
+                <DataGridTemplateColumn Header="Data Koncertu">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <DatePicker SelectedDateFormat="Long" SelectedDate="{Binding Path=Date}" FirstDayOfWeek="Monday"/>
