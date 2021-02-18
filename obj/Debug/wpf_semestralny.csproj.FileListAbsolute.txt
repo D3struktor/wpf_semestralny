@@ -21,3 +21,11 @@ C:\Users\D3struktor\source\repos\wpf_semestralny\wpf_semestralny\bin\Debug\Entit
 C:\Users\D3struktor\source\repos\wpf_semestralny\wpf_semestralny\bin\Debug\EntityFramework.xml
 C:\Users\D3struktor\source\repos\wpf_semestralny\wpf_semestralny\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\D3struktor\source\repos\wpf_semestralny\wpf_semestralny\obj\Debug\wpf_semestralny.csproj.CopyComplete
+C:\Users\D3struktor\source\repos\wpf_semestralny\wpf_semestralny\obj\Debug\Dashboard.g.cs
+C:\Users\D3struktor\source\repos\wpf_semestralny\wpf_semestralny\obj\Debug\Items.g.cs
+C:\Users\D3struktor\source\repos\wpf_semestralny\wpf_semestralny\obj\Debug\Performances.g.cs
+C:\Users\D3struktor\source\repos\wpf_semestralny\wpf_semestralny\obj\Debug\Staff.g.cs
+C:\Users\D3struktor\source\repos\wpf_semestralny\wpf_semestralny\obj\Debug\Dashboard.baml
+C:\Users\D3struktor\source\repos\wpf_semestralny\wpf_semestralny\obj\Debug\Items.baml
+C:\Users\D3struktor\source\repos\wpf_semestralny\wpf_semestralny\obj\Debug\Performances.baml
+C:\Users\D3struktor\source\repos\wpf_semestralny\wpf_semestralny\obj\Debug\Staff.baml

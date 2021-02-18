@@ -16,7 +16,6 @@ namespace wpf_semestralny
         public virtual DbSet<Items> Items { get; set; }
         public virtual DbSet<Performance> Performance { get; set; }
         public virtual DbSet<Performance_staff> Performance_staff { get; set; }
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Employers>()
