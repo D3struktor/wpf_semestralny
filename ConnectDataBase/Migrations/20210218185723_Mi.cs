@@ -45,7 +45,8 @@ namespace ConnectDataBase.Migrations
                     Performance_id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Performance_name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    Performace_visit_cost = table.Column<decimal>(type: "decimal(10,4)", precision: 10, scale: 4, nullable: false)
+                    Performace_visit_cost = table.Column<decimal>(type: "decimal(10,4)", precision: 10, scale: 4, nullable: false),
+                    Performance_Date = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -107,7 +108,7 @@ namespace ConnectDataBase.Migrations
             migrationBuilder.InsertData(
                 table: "Employers",
                 columns: new[] { "Employer_id", "Employer_last_name", "Employer_name", "Employment_date", "Password", "Username" },
-                values: new object[] { 1, "Heliak", "Mikolaj", new DateTime(2021, 2, 18, 19, 34, 31, 393, DateTimeKind.Local).AddTicks(9024), "123", "menager" });
+                values: new object[] { 1, "Heliak", "Mikolaj", new DateTime(2021, 2, 18, 19, 57, 23, 93, DateTimeKind.Local).AddTicks(9631), "123", "menager" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_ItemsPerformance_Performance_id",

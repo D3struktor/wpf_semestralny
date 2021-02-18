@@ -23,7 +23,7 @@
                     <DataGridTextColumn Header="Nazwisko" Binding="{Binding Path=Employer_last_name}"/>
                     <DataGridTextColumn Header="Username" Binding="{Binding Path=Username}"/>
                     <DataGridTextColumn Header="Password" Binding="{Binding Path=Password}"/>
-                    <DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Data">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <DatePicker SelectedDateFormat="Long" SelectedDate="{Binding Path=Employment_date}" FirstDayOfWeek="Monday"/>

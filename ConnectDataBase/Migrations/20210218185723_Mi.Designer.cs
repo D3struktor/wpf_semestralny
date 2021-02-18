@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ConnectDataBase.Migrations
 {
     [DbContext(typeof(UsersDB))]
-    [Migration("20210218183431_Mi")]
+    [Migration("20210218185723_Mi")]
     partial class Mi
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -57,7 +57,7 @@ namespace ConnectDataBase.Migrations
                             Employer_id = 1,
                             Employer_last_name = "Heliak",
                             Employer_name = "Mikolaj",
-                            Employment_date = new DateTime(2021, 2, 18, 19, 34, 31, 393, DateTimeKind.Local).AddTicks(9024),
+                            Employment_date = new DateTime(2021, 2, 18, 19, 57, 23, 93, DateTimeKind.Local).AddTicks(9631),
                             Password = "123",
                             Username = "menager"
                         });
@@ -92,6 +92,9 @@ namespace ConnectDataBase.Migrations
                     b.Property<decimal>("Performace_visit_cost")
                         .HasPrecision(10, 4)
                         .HasColumnType("decimal(10,4)");
+
+                    b.Property<DateTime>("Performance_Date")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Performance_name")
                         .HasMaxLength(50)

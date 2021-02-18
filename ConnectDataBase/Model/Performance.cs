@@ -26,6 +26,7 @@ namespace ConnectDataBase
         public int Performance_id { get; set; }
         public string Performance_name { get; set; }
         public decimal Performace_visit_cost { get; set; }
+        public DateTime Performance_Date { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Performance_staff> Performance_staff { get; set; }
