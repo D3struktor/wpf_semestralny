@@ -13,6 +13,9 @@ namespace wpf_semestralny
     /// </summary>
     public partial class Staff : Window
     {
+        /// <summary>
+        /// Tworzy okienko z pracownikami
+        /// </summary>
         public Staff()
         {
             InitializeComponent();
@@ -115,11 +118,21 @@ namespace wpf_semestralny
                     db.Employers.Attach(Employer);
                     if (value.Length < 3)
                         return;
+                    if (CheckAll(value))
+                        return;
                     Employer.Username = value;
                     db.SaveChanges();
                 }
             }
 
+            private bool CheckAll(string name)
+            {
+                using var db = new UsersDB();
+                var a = db.Employers.Where(a => a.Username == name);
+
+                return (a.Count() > 0);
+
+            }
 
             public EmployerInfo()
             {
@@ -133,6 +146,11 @@ namespace wpf_semestralny
                     Username = "User",
                     Password = "Password"
                 };
+
+                for(int i = 0; CheckAll(Employer.Username); i++)
+                {
+                    Employer.Username = "User_" + i.ToString();
+                }
 
                 db.Employers.Add(Employer);
                 db.SaveChanges();

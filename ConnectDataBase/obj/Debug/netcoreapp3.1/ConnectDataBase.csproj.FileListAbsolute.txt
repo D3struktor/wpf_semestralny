@@ -11,3 +11,4 @@ C:\Users\D3struktor\source\repos\wpf_semestralny\ConnectDataBase\bin\Debug\netco
 C:\Users\D3struktor\source\repos\wpf_semestralny\ConnectDataBase\obj\Debug\netcoreapp3.1\ConnectDataBase.dll
 C:\Users\D3struktor\source\repos\wpf_semestralny\ConnectDataBase\obj\Debug\netcoreapp3.1\ConnectDataBase.pdb
 C:\Users\D3struktor\source\repos\wpf_semestralny\ConnectDataBase\bin\Debug\netcoreapp3.1\ClubDB.mdf
+C:\Users\D3struktor\source\repos\wpf_semestralny\ConnectDataBase\bin\Debug\netcoreapp3.1\ClubDB_log.ldf

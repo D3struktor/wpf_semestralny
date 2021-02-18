@@ -62,6 +62,7 @@ namespace ConnectDataBase
             modelBuilder.Entity<Performance>()
                 .HasMany(e => e.Performance_staff)
                 .WithOne(e => e.Performance)
+                .HasForeignKey(a=>a.Performance_id)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Employers>()

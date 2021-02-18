@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Performances" Height="450" Width="800">
     <Grid>
-        <Border CornerRadius="10" Grid.RowSpan="2">
+        <Border CornerRadius="10">
             <Border.Background>
                 <LinearGradientBrush>
                     <GradientStop Color="#9a9aa6" Offset="0.1"/>
@@ -16,7 +16,7 @@
             </Border.Background>
         </Border>
 
-        <DataGrid x:Name="Wystepy" Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top" CanUserAddRows="True" CanUserDeleteRows="False" AutoGenerateColumns="False" Width="671" Margin="119,29,0,0">
+        <DataGrid x:Name="Wystepy" Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top" CanUserAddRows="True" CanUserDeleteRows="False" AutoGenerateColumns="False" Width="800">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Path=ID}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Koncert" Binding="{Binding Path=Name}"/>
@@ -28,6 +28,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+                <DataGridComboBoxColumn x:Name="ListaPracownikow" Header="Pracownik" SelectedValueBinding="{Binding Path=Pracownik}"/>
                 <DataGridTemplateColumn Header="Usuń">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

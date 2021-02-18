@@ -55,7 +55,7 @@ namespace ConnectDataBase.Migrations
                             Employer_id = 1,
                             Employer_last_name = "Heliak",
                             Employer_name = "Mikolaj",
-                            Employment_date = new DateTime(2021, 2, 18, 19, 57, 23, 93, DateTimeKind.Local).AddTicks(9631),
+                            Employment_date = new DateTime(2021, 2, 18, 21, 20, 48, 309, DateTimeKind.Local).AddTicks(1115),
                             Password = "123",
                             Username = "menager"
                         });
@@ -111,9 +111,6 @@ namespace ConnectDataBase.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("Employer_id")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Employer_type_of_work_id")
                         .HasColumnType("int");
 
                     b.Property<int>("Performance_id")

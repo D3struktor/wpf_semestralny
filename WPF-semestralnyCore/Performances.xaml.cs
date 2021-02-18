@@ -1,4 +1,5 @@
 ﻿using ConnectDataBase;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,12 +22,16 @@ namespace wpf_semestralny
         }
 
         private List<PerformanceInfo> Employer_Info = new List<PerformanceInfo>();
+        internal static int ID { get; private set; }
 
         private void ViewData()
         {
             using var db = new UsersDB();
             Employer_Info = db.Performance.Select(a => new PerformanceInfo(a)).ToList();
+            var pracownicy = db.Employers.Select(a => a.Username).ToList();
+            var wyposazenie = db.Items.Select(a => a.Item_name).ToList();
 
+            ListaPracownikow.ItemsSource = pracownicy;
             Wystepy.ItemsSource = Employer_Info;
         }
 
@@ -48,11 +53,44 @@ namespace wpf_semestralny
 
         class PerformanceInfo
         {
-            public Performance Performance { get; }
+            public Performance Performance { get; private set; }
 
             public int ID
             {
                 get => Performance.Performance_id;
+            }
+            public string Pracownik
+            {
+                get
+                {
+                    var a = Performance.Performance_staff.FirstOrDefault();
+                    if (a is null)
+                        return "";
+                    return a.Employers.Username;
+                }
+                set
+                {
+                    using var db = new UsersDB();
+                    var prac = db.Employers.Where(a => a.Username == value).First();
+                    var a = Performance.Performance_staff.FirstOrDefault(a => a.Performance_id == Performance.Performance_id);
+
+                    if (a is null)
+                    {
+                        var b = new Performance_staff()
+                        {
+                            Employer_id = prac.Employer_id,
+                            Performance_id = Performance.Performance_id
+                        };
+                        db.Performance_staff.Add(b);
+                    }
+                    else
+                    {
+                        db.Performance_staff.Attach(a);
+                        a.Employer_id = prac.Employer_id;
+                    }
+                    db.SaveChanges();
+                    refresh();
+                }
             }
             public string Name
             {
@@ -95,6 +133,14 @@ namespace wpf_semestralny
                 }
             }
 
+            private void refresh()
+            {
+                using var db = new UsersDB();
+                Performance = db.Performance.Include(a => a.Performance_staff).ThenInclude(a => a.Employers)
+                     .First(a => a.Performance_id == Performance.Performance_id);
+
+                Console.WriteLine(123);
+            }
 
             public PerformanceInfo()
             {
@@ -109,12 +155,17 @@ namespace wpf_semestralny
 
                 db.Performance.Add(Performance);
                 db.SaveChanges();
+
+                refresh();
             }
 
             public PerformanceInfo(Performance performance)
             {
                 Performance = performance;
+                refresh()
+                ;
             }
         }
+
     }
 }
