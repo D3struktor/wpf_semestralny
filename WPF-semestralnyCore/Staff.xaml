@@ -8,13 +8,7 @@
         Title="Staff" Height="450" Width="800">
     <Grid>
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-
-
-            <Border CornerRadius="10" Grid.RowSpan="2">
+            <Border CornerRadius="10">
                 <Border.Background>
                     <LinearGradientBrush>
                         <GradientStop Color="#9a9aa6" Offset="0.1"/>
@@ -22,6 +16,31 @@
                     </LinearGradientBrush>
                 </Border.Background>
             </Border>
+
+            <DataGrid x:Name="Pracownicy" Background="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Center" CanUserAddRows="True" CanUserDeleteRows="False" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Imie" Binding="{Binding Path=Employer_name}"/>
+                    <DataGridTextColumn Header="Nazwisko" Binding="{Binding Path=Employer_last_name}"/>
+                    <DataGridTextColumn Header="Username" Binding="{Binding Path=Username}"/>
+                    <DataGridTextColumn Header="Password" Binding="{Binding Path=Password}"/>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDateFormat="Long" SelectedDate="{Binding Path=Employment_date}" FirstDayOfWeek="Monday"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button CommandParameter="{Binding Path=Employer_id}" Click="DeleteUser">
+                                    Usun
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
     </Grid>
 </Window>

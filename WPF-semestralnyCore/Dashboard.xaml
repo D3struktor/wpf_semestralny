@@ -29,10 +29,11 @@
                            FontFamily="helvetica"
                            FontSize="22"
                            Foreground="White"
-                           HorizontalAlignment="Center" Margin="279,0" Height="37"/>
+                           Height="37" Width="300"/>
             </StackPanel>
-            <StackPanel VerticalAlignment="Top">
+            <StackPanel VerticalAlignment="Top" Margin="50">
                 <TextBlock Text="Uzytkownik"
+                           
                            FontWeight="Light"
                            FontFamily="helvetica"
                            FontSize="22"

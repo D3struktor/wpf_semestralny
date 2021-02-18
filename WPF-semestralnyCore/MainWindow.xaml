@@ -5,9 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpf_semestralny"
         mc:Ignorable="d"
-        Title="MainWindow" Height="401.087" Width="730.299"
-        AllowsTransparency="True" Background="Transparent"
-        WindowStyle="None" ResizeMode="NoResize"
+        Title="Aplikacja KKM" Height="401.087" Width="730.299"
         MouseDown="MainWindow_OnMouseDown">
     <Grid>
         <Grid>
@@ -33,7 +31,7 @@
                            FontFamily="helvetica"
                            FontSize="22"
                            Foreground="White"
-                           HorizontalAlignment="Center" Margin="248,0" Height="37"/>
+                           Width="400" Height="37"/>
             </StackPanel>
 
             <StackPanel Grid.Row="1" >

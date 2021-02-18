@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConnectDataBase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,5 +24,22 @@ namespace wpf_semestralny
         {
             InitializeComponent();
         }
+
+        private void btnItems_Click(object o,EventArgs e)
+        {
+            new Window1().Show();
+            this.Close();
+        }
+        private void btnPerformance_Click(object o, EventArgs e)
+        {
+            new Performances().Show();
+            this.Close();
+        }
+        private void btnStaff_Click(object o, EventArgs e)
+        {
+            new Staff().Show();
+            this.Close();
+        }
+        
     }
 }
