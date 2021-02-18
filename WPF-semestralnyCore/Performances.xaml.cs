@@ -53,12 +53,21 @@ namespace wpf_semestralny
 
         class PerformanceInfo
         {
+            /// <summary>
+            /// Pobieranie Performance z bazy danych
+            /// </summary>
             public Performance Performance { get; private set; }
 
+            /// <summary>
+            /// ID otrzymuje wartość Primarykey Performance
+            /// </summary>
             public int ID
             {
                 get => Performance.Performance_id;
             }
+            /// <summary>
+            /// Przypisanie pracownika do obsługi Koncertu
+            /// </summary>
             public string Pracownik
             {
                 get
@@ -92,6 +101,9 @@ namespace wpf_semestralny
                     refresh();
                 }
             }
+            /// <summary>
+            /// Dodanie nazwy koncertu z wyjątkami w Regex
+            /// </summary>
             public string Name
             {
                 get => Performance.Performance_name;
@@ -105,7 +117,9 @@ namespace wpf_semestralny
                     db.SaveChanges();
                 }
             }
-
+            /// <summary>
+            /// Dodanie kosztu koncertu
+            /// </summary>
             public decimal Cost
             {
                 get => Performance.Performace_visit_cost;
@@ -120,6 +134,9 @@ namespace wpf_semestralny
                     db.SaveChanges();
                 }
             }
+            /// <summary>
+            /// Dodanie daty koncertu
+            /// </summary>
             public System.DateTime Date
             {
                 get => Performance.Performance_Date;
@@ -141,7 +158,9 @@ namespace wpf_semestralny
 
                 Console.WriteLine(123);
             }
-
+            /// <summary>
+            /// Przykładowy koncert(PerformanceInfo)
+            /// </summary>
             public PerformanceInfo()
             {
                 using var db = new UsersDB();
@@ -158,7 +177,9 @@ namespace wpf_semestralny
 
                 refresh();
             }
-
+            /// <summary>
+            /// Odświeżenie danych w Performance
+            /// </summary>
             public PerformanceInfo(Performance performance)
             {
                 Performance = performance;

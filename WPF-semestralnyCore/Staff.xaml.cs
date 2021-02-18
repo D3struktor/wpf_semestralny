@@ -14,7 +14,7 @@ namespace wpf_semestralny
     public partial class Staff : Window
     {
         /// <summary>
-        /// Tworzy okienko z pracownikami
+        /// Okienko z listą pracowników
         /// </summary>
         public Staff()
         {
@@ -51,12 +51,18 @@ namespace wpf_semestralny
 
         class EmployerInfo
         {
-          public  Employers Employer { get; }
+            /// <summary>
+            /// Pracownicy
+            /// </summary>
+            public Employers Employer { get; }
 
             public int Employer_id
             {
                 get => Employer.Employer_id;
             }
+            /// <summary>
+            /// Pobranie/Dodanie Imienia Pracownika
+            /// </summary>
             public string Employer_name
             {
                 get => Employer.Employer_name;
@@ -70,6 +76,9 @@ namespace wpf_semestralny
                     db.SaveChanges();
                 }
             }
+            /// <summary>
+            /// Pobranie/Dodanie Nazwiska Pracownika
+            /// </summary>
             public string Employer_last_name
             {
                 get => Employer.Employer_last_name;
@@ -84,6 +93,9 @@ namespace wpf_semestralny
                 }
 
             }
+            /// <summary>
+            /// Pobranie/Dodanie Daty zatrudnienia Pracownika
+            /// </summary>
             public System.DateTime Employment_date
             {
                 get => Employer.Employment_date;
@@ -96,6 +108,9 @@ namespace wpf_semestralny
                     db.SaveChanges();
                 }
             }
+            /// <summary>
+            /// Pobranie/Dodanie Hasła Pracownika
+            /// </summary>
             public string Password
             {
                 get => Employer.Password;
@@ -109,6 +124,9 @@ namespace wpf_semestralny
                     db.SaveChanges();
                 }
             }
+            /// <summary>
+            /// Pobranie/Dodanie Nazwy użytkownika Pracownika
+            /// </summary>
             public string Username
             {
                 get => Employer.Username;
@@ -133,7 +151,9 @@ namespace wpf_semestralny
                 return (a.Count() > 0);
 
             }
-
+            /// <summary>
+            /// Dodawanie pracownika do listy wraz z przykładowymi danymi
+            /// </summary>
             public EmployerInfo()
             {
                 using var db = new UsersDB();
@@ -155,7 +175,9 @@ namespace wpf_semestralny
                 db.Employers.Add(Employer);
                 db.SaveChanges();
             }
-
+            /// <summary>
+            /// Odświeżenie danych w Employer
+            /// </summary>
             public EmployerInfo(Employers employer)
             {
                 Employer = employer;

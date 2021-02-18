@@ -60,12 +60,18 @@ namespace wpf_semestralny
 
         class WyposazenieInfo
         {
+            /// <summary>
+            /// Pobranie listy Wyposażenia
+            /// </summary>
             public Items Item { get; }
 
             public int ID
             {
                 get => Item.Item_ID;
             }
+            /// <summary>
+            /// Pobranie/Dodanie Nazwy Wyposażenia
+            /// </summary>
             public string ItemName
             {
                 get => Item.Item_name;
@@ -79,7 +85,9 @@ namespace wpf_semestralny
                     db.SaveChanges();
                 }
             }
-
+            /// <summary>
+            /// Pobranie/Dodanie Ilości Wyposażenia
+            /// </summary>
             public int Count
             {
                 get => Item.Item_Count;
@@ -95,7 +103,9 @@ namespace wpf_semestralny
                 }
             }
 
-
+            /// <summary>
+            /// Dodanie przykładowego przedmiotu do bazy danych
+            /// </summary>
             public WyposazenieInfo()
             {
                 using var db = new UsersDB();
@@ -109,7 +119,9 @@ namespace wpf_semestralny
                 db.Items.Add(Item);
                 db.SaveChanges();
             }
-
+            /// <summary>
+            /// Odświeżenie danych w Wyposażeniu
+            /// </summary>
             public WyposazenieInfo(Items item)
             {
                 Item = item;
