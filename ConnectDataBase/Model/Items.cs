@@ -24,6 +24,7 @@ namespace ConnectDataBase
         [Key]
         public int Item_ID { get; set; }
         public string Item_name { get; set; }
+        public int Item_Count { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Performance> Performance { get; set; }

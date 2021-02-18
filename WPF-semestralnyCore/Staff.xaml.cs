@@ -53,7 +53,6 @@ namespace wpf_semestralny
             public int Employer_id
             {
                 get => Employer.Employer_id;
-                set => throw new NotImplementedException();
             }
             public string Employer_name
             {

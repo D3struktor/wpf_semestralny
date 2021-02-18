@@ -55,7 +55,7 @@ namespace ConnectDataBase.Migrations
                             Employer_id = 1,
                             Employer_last_name = "Heliak",
                             Employer_name = "Mikolaj",
-                            Employment_date = new DateTime(2021, 2, 18, 13, 20, 26, 365, DateTimeKind.Local).AddTicks(6832),
+                            Employment_date = new DateTime(2021, 2, 18, 19, 34, 31, 393, DateTimeKind.Local).AddTicks(9024),
                             Password = "123",
                             Username = "menager"
                         });
@@ -67,6 +67,9 @@ namespace ConnectDataBase.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Item_Count")
+                        .HasColumnType("int");
 
                     b.Property<string>("Item_name")
                         .HasMaxLength(50)

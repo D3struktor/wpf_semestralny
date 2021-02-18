@@ -7,21 +7,31 @@
         mc:Ignorable="d"
         Title="Window1" Height="450" Width="800">
     <Grid>
-        <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
+        <Border CornerRadius="10">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#9a9aa6" Offset="0.1"/>
+                    <GradientStop Color="#aa23ba" Offset="1.5"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
 
+        <DataGrid x:Name="Wyposazenie" Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top" CanUserAddRows="True" CanUserDeleteRows="False" AutoGenerateColumns="False" Width="671" Margin="119,29,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=ID}"/>
+                <DataGridTextColumn Header="Nazwa" Binding="{Binding Path=ItemName}"/>
+                <DataGridTextColumn Header="Ilosc" Binding="{Binding Path=Count}"/>
 
-                <Border CornerRadius="10" Grid.RowSpan="2">
-                    <Border.Background>
-                        <LinearGradientBrush>
-                            <GradientStop Color="#9a9aa6" Offset="0.1"/>
-                            <GradientStop Color="#aa23ba" Offset="1.5"/>
-                        </LinearGradientBrush>
-                    </Border.Background>
-                </Border>
-            </Grid>
-        </Grid>
+                <DataGridTemplateColumn Header="Usuń">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button CommandParameter="{Binding Path=ID}" Click="DeleteUser">
+                                Usun
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
 </Window>

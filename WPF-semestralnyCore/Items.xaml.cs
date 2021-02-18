@@ -1,7 +1,10 @@
-﻿using System;
+﻿using ConnectDataBase;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,6 +25,94 @@ namespace wpf_semestralny
         public Window1()
         {
             InitializeComponent();
+
+            ViewData();
+        }
+
+        private List<WyposazenieInfo> wyposazenie = new List<WyposazenieInfo>();
+
+        private void ViewData()
+        {
+            using var db = new UsersDB();
+            wyposazenie = db.Items.Select(a => new WyposazenieInfo(a)).ToList();
+            if (wyposazenie.Count == 0)
+                wyposazenie.Add(new WyposazenieInfo());
+
+            Wyposazenie.ItemsSource = wyposazenie;
+        }
+
+        private void DeleteUser(object o, EventArgs e)
+        {
+            var id = (int)((Button)o).CommandParameter;
+
+            var item = wyposazenie.FirstOrDefault(a => a.ID == id);
+            wyposazenie.Remove(item);
+
+            using var db = new UsersDB();
+            db.Items.Remove(item.Item);
+
+            db.SaveChanges();
+
+            Wyposazenie.ItemsSource = null;
+            Wyposazenie.ItemsSource = wyposazenie;
+        }
+
+        class WyposazenieInfo
+        {
+            public Items Item { get; }
+
+            public int ID
+            {
+                get => Item.Item_ID;
+            }
+            public string ItemName
+            {
+                get => Item.Item_name;
+                set
+                {
+                    using var db = new UsersDB();
+                    db.Items.Attach(Item);
+                    if (!Regex.IsMatch(value, "^[A-Z][a-m]*"))
+                        return;
+                    Item.Item_name = value;
+                    db.SaveChanges();
+                }
+            }
+
+            public int Count
+            {
+                get => Item.Item_Count;
+                set
+                {
+                    using var db = new UsersDB();
+                    db.Items.Attach(Item);
+
+                    if (value < 0)
+                        return;
+                    Item.Item_Count = value;
+                    db.SaveChanges();
+                }
+            }
+
+
+            public WyposazenieInfo()
+            {
+                using var db = new UsersDB();
+
+                Item = new Items()
+                {
+                    Item_name="Instrument",
+                    Item_Count=0
+                };
+
+                db.Items.Add(Item);
+                db.SaveChanges();
+            }
+
+            public WyposazenieInfo(Items item)
+            {
+                Item = item;
+            }
         }
     }
 }

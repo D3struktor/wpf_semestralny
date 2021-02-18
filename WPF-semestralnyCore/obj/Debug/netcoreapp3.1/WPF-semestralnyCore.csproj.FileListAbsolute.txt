@@ -66,4 +66,3 @@ C:\Users\D3struktor\source\repos\wpf_semestralny\WPF-semestralnyCore\obj\Debug\n
 C:\Users\D3struktor\source\repos\wpf_semestralny\WPF-semestralnyCore\obj\Debug\netcoreapp3.1\Performances.baml
 C:\Users\D3struktor\source\repos\wpf_semestralny\WPF-semestralnyCore\obj\Debug\netcoreapp3.1\Staff.baml
 C:\Users\D3struktor\source\repos\wpf_semestralny\WPF-semestralnyCore\bin\Debug\netcoreapp3.1\ClubDB.mdf
-C:\Users\D3struktor\source\repos\wpf_semestralny\WPF-semestralnyCore\bin\Debug\netcoreapp3.1\ClubDB_log.ldf
