@@ -33,7 +33,7 @@ namespace wpf_semestralny
         }
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\Database; Initial Catalog=Database; Integrated Secutity=sspi;");
+            SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\Database; Initial Catalog=Database; Integrated Secutity=true;");
             try
             {
                 if (sqlCon.State == ConnectionState.Closed)
