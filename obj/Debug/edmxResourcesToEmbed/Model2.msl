@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities">
+    <EntitySetMapping Name="Employers">
+      <EntityTypeMapping TypeName="DatabaseModel.Employers">
+        <MappingFragment StoreEntitySet="Employers">
+          <ScalarProperty Name="Employer_id" ColumnName="Employer_id" />
+          <ScalarProperty Name="Employer_name" ColumnName="Employer_name" />
+          <ScalarProperty Name="Employer_last_name" ColumnName="Employer_last_name" />
+          <ScalarProperty Name="Employment_date" ColumnName="Employment_date" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="DatabaseModel.Items">
+        <MappingFragment StoreEntitySet="Items">
+          <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+          <ScalarProperty Name="Item_name" ColumnName="Item_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Performance">
+      <EntityTypeMapping TypeName="DatabaseModel.Performance">
+        <MappingFragment StoreEntitySet="Performance">
+          <ScalarProperty Name="Performance_id" ColumnName="Performance_id" />
+          <ScalarProperty Name="Performance_name" ColumnName="Performance_name" />
+          <ScalarProperty Name="Performace_visit_cost" ColumnName="Performace_visit_cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Performance_staff">
+      <EntityTypeMapping TypeName="DatabaseModel.Performance_staff">
+        <MappingFragment StoreEntitySet="Performance_staff">
+          <ScalarProperty Name="Performance_staff_id" ColumnName="Performance_staff_id" />
+          <ScalarProperty Name="Performance_id" ColumnName="Performance_id" />
+          <ScalarProperty Name="Employer_id" ColumnName="Employer_id" />
+          <ScalarProperty Name="Employer_type_of_work_id" ColumnName="Employer_type_of_work_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Performance_items" TypeName="DatabaseModel.Performance_items" StoreEntitySet="Performance_items">
+      <EndProperty Name="Items">
+        <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+      </EndProperty>
+      <EndProperty Name="Performance">
+        <ScalarProperty Name="Performance_id" ColumnName="Performance_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

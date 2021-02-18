@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Employers">
+    <Key>
+      <PropertyRef Name="Employer_id" />
+    </Key>
+    <Property Name="Employer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Employer_name" Type="nchar" MaxLength="25" Nullable="false" />
+    <Property Name="Employer_last_name" Type="nchar" MaxLength="25" />
+    <Property Name="Employment_date" Type="date" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Username" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Items">
+    <Key>
+      <PropertyRef Name="Item_ID" />
+    </Key>
+    <Property Name="Item_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Item_name" Type="nchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Performance">
+    <Key>
+      <PropertyRef Name="Performance_id" />
+    </Key>
+    <Property Name="Performance_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Performance_name" Type="nchar" MaxLength="25" Nullable="false" />
+    <Property Name="Performace_visit_cost" Type="smallmoney" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Performance_items">
+    <Key>
+      <PropertyRef Name="Performance_id" />
+      <PropertyRef Name="Item_ID" />
+    </Key>
+    <Property Name="Performance_id" Type="int" Nullable="false" />
+    <Property Name="Item_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Performance_staff">
+    <Key>
+      <PropertyRef Name="Performance_staff_id" />
+    </Key>
+    <Property Name="Performance_staff_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Performance_id" Type="int" Nullable="false" />
+    <Property Name="Employer_id" Type="int" Nullable="false" />
+    <Property Name="Employer_type_of_work_id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Performance_items__Items">
+    <End Role="Items" Type="Self.Items" Multiplicity="1" />
+    <End Role="Performance_items" Type="Self.Performance_items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Items">
+        <PropertyRef Name="Item_ID" />
+      </Principal>
+      <Dependent Role="Performance_items">
+        <PropertyRef Name="Item_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Performance_items__Performance">
+    <End Role="Performance" Type="Self.Performance" Multiplicity="1" />
+    <End Role="Performance_items" Type="Self.Performance_items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Performance">
+        <PropertyRef Name="Performance_id" />
+      </Principal>
+      <Dependent Role="Performance_items">
+        <PropertyRef Name="Performance_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Performance_staff__Employers">
+    <End Role="Employers" Type="Self.Employers" Multiplicity="1" />
+    <End Role="Performance_staff" Type="Self.Performance_staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employers">
+        <PropertyRef Name="Employer_id" />
+      </Principal>
+      <Dependent Role="Performance_staff">
+        <PropertyRef Name="Employer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Performance_staff__Performance">
+    <End Role="Performance" Type="Self.Performance" Multiplicity="1" />
+    <End Role="Performance_staff" Type="Self.Performance_staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Performance">
+        <PropertyRef Name="Performance_id" />
+      </Principal>
+      <Dependent Role="Performance_staff">
+        <PropertyRef Name="Performance_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DatabaseModelStoreContainer">
+    <EntitySet Name="Employers" EntityType="Self.Employers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Performance" EntityType="Self.Performance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Performance_items" EntityType="Self.Performance_items" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Performance_staff" EntityType="Self.Performance_staff" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Performance_items__Items" Association="Self.FK_Performance_items__Items">
+      <End Role="Items" EntitySet="Items" />
+      <End Role="Performance_items" EntitySet="Performance_items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Performance_items__Performance" Association="Self.FK_Performance_items__Performance">
+      <End Role="Performance" EntitySet="Performance" />
+      <End Role="Performance_items" EntitySet="Performance_items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Performance_staff__Employers" Association="Self.FK_Performance_staff__Employers">
+      <End Role="Employers" EntitySet="Employers" />
+      <End Role="Performance_staff" EntitySet="Performance_staff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Performance_staff__Performance" Association="Self.FK_Performance_staff__Performance">
+      <End Role="Performance" EntitySet="Performance" />
+      <End Role="Performance_staff" EntitySet="Performance_staff" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

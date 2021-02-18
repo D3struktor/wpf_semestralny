@@ -33,12 +33,24 @@ namespace wpf_semestralny
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
-          DatabaseEntities login = new DatabaseEntities();
+        /*  DatabaseEntities login = new DatabaseEntities();
+            private void btnLogin_Click(object sender, EventArgs e)
+                 {
+                    foreach (var username in Database)
+                if(Employers.username == txtUsername && Employers.Password == txtPassword)
+                {
+                    MainWindow dashboard = new MainWindow();
+                    dashboard.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Login or Password is incorrect");
+                }
         
-        
+        */
 
-
-       /* private void btnLogin_Click(object sender, RoutedEventArgs e)
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\Database; Initial Catalog=Database; Integrated Secutity=true;");
             try
@@ -70,7 +82,7 @@ namespace wpf_semestralny
             finally
             {
 
-            }*/
+            }
         }
     }
 }
