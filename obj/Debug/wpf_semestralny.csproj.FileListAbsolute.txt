@@ -16,3 +16,8 @@ C:\Users\D3struktor\source\repos\wpf_semestralny\wpf_semestralny\obj\Debug\wpf_s
 C:\Users\D3struktor\source\repos\wpf_semestralny\wpf_semestralny\obj\Debug\wpf_semestralny.pdb
 C:\Users\D3struktor\source\repos\wpf_semestralny\wpf_semestralny\bin\Debug\Database.mdf
 C:\Users\D3struktor\source\repos\wpf_semestralny\wpf_semestralny\bin\Debug\Database_log.ldf
+C:\Users\D3struktor\source\repos\wpf_semestralny\wpf_semestralny\bin\Debug\EntityFramework.dll
+C:\Users\D3struktor\source\repos\wpf_semestralny\wpf_semestralny\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\D3struktor\source\repos\wpf_semestralny\wpf_semestralny\bin\Debug\EntityFramework.xml
+C:\Users\D3struktor\source\repos\wpf_semestralny\wpf_semestralny\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\D3struktor\source\repos\wpf_semestralny\wpf_semestralny\obj\Debug\wpf_semestralny.csproj.CopyComplete

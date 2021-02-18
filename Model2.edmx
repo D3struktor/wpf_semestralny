@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Employers">
+          <Key>
+            <PropertyRef Name="Employer_id" />
+          </Key>
+          <Property Name="Employer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Employer_name" Type="nchar" MaxLength="25" Nullable="false" />
+          <Property Name="Employer_last_name" Type="nchar" MaxLength="25" />
+          <Property Name="Employment_date" Type="date" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Username" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="Item_ID" />
+          </Key>
+          <Property Name="Item_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Item_name" Type="nchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Performance">
+          <Key>
+            <PropertyRef Name="Performance_id" />
+          </Key>
+          <Property Name="Performance_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Performance_name" Type="nchar" MaxLength="25" Nullable="false" />
+          <Property Name="Performace_visit_cost" Type="smallmoney" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Performance_items">
+          <Key>
+            <PropertyRef Name="Performance_id" />
+            <PropertyRef Name="Item_ID" />
+          </Key>
+          <Property Name="Performance_id" Type="int" Nullable="false" />
+          <Property Name="Item_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Performance_staff">
+          <Key>
+            <PropertyRef Name="Performance_staff_id" />
+          </Key>
+          <Property Name="Performance_staff_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Performance_id" Type="int" Nullable="false" />
+          <Property Name="Employer_id" Type="int" Nullable="false" />
+          <Property Name="Employer_type_of_work_id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Performance_items__Items">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="Performance_items" Type="Self.Performance_items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Item_ID" />
+            </Principal>
+            <Dependent Role="Performance_items">
+              <PropertyRef Name="Item_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Performance_items__Performance">
+          <End Role="Performance" Type="Self.Performance" Multiplicity="1" />
+          <End Role="Performance_items" Type="Self.Performance_items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Performance">
+              <PropertyRef Name="Performance_id" />
+            </Principal>
+            <Dependent Role="Performance_items">
+              <PropertyRef Name="Performance_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Performance_staff__Employers">
+          <End Role="Employers" Type="Self.Employers" Multiplicity="1" />
+          <End Role="Performance_staff" Type="Self.Performance_staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employers">
+              <PropertyRef Name="Employer_id" />
+            </Principal>
+            <Dependent Role="Performance_staff">
+              <PropertyRef Name="Employer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Performance_staff__Performance">
+          <End Role="Performance" Type="Self.Performance" Multiplicity="1" />
+          <End Role="Performance_staff" Type="Self.Performance_staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Performance">
+              <PropertyRef Name="Performance_id" />
+            </Principal>
+            <Dependent Role="Performance_staff">
+              <PropertyRef Name="Performance_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DatabaseModelStoreContainer">
+          <EntitySet Name="Employers" EntityType="Self.Employers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Performance" EntityType="Self.Performance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Performance_items" EntityType="Self.Performance_items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Performance_staff" EntityType="Self.Performance_staff" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Performance_items__Items" Association="Self.FK_Performance_items__Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Performance_items" EntitySet="Performance_items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Performance_items__Performance" Association="Self.FK_Performance_items__Performance">
+            <End Role="Performance" EntitySet="Performance" />
+            <End Role="Performance_items" EntitySet="Performance_items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Performance_staff__Employers" Association="Self.FK_Performance_staff__Employers">
+            <End Role="Employers" EntitySet="Employers" />
+            <End Role="Performance_staff" EntitySet="Performance_staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Performance_staff__Performance" Association="Self.FK_Performance_staff__Performance">
+            <End Role="Performance" EntitySet="Performance" />
+            <End Role="Performance_staff" EntitySet="Performance_staff" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Employers">
+          <Key>
+            <PropertyRef Name="Employer_id" />
+          </Key>
+          <Property Name="Employer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Employer_name" Type="String" MaxLength="25" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Employer_last_name" Type="String" MaxLength="25" FixedLength="true" Unicode="true" />
+          <Property Name="Employment_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Performance_staff" Relationship="Self.FK_Performance_staff__Employers" FromRole="Employers" ToRole="Performance_staff" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="Item_ID" />
+          </Key>
+          <Property Name="Item_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Item_name" Type="String" MaxLength="25" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Performance" Relationship="Self.Performance_items" FromRole="Items" ToRole="Performance" />
+        </EntityType>
+        <EntityType Name="Performance">
+          <Key>
+            <PropertyRef Name="Performance_id" />
+          </Key>
+          <Property Name="Performance_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Performance_name" Type="String" MaxLength="25" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Performace_visit_cost" Type="Decimal" Precision="10" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Performance_staff" Relationship="Self.FK_Performance_staff__Performance" FromRole="Performance" ToRole="Performance_staff" />
+          <NavigationProperty Name="Items" Relationship="Self.Performance_items" FromRole="Performance" ToRole="Items" />
+        </EntityType>
+        <EntityType Name="Performance_staff">
+          <Key>
+            <PropertyRef Name="Performance_staff_id" />
+          </Key>
+          <Property Name="Performance_staff_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Performance_id" Type="Int32" Nullable="false" />
+          <Property Name="Employer_id" Type="Int32" Nullable="false" />
+          <Property Name="Employer_type_of_work_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employers" Relationship="Self.FK_Performance_staff__Employers" FromRole="Performance_staff" ToRole="Employers" />
+          <NavigationProperty Name="Performance" Relationship="Self.FK_Performance_staff__Performance" FromRole="Performance_staff" ToRole="Performance" />
+        </EntityType>
+        <Association Name="FK_Performance_staff__Employers">
+          <End Role="Employers" Type="Self.Employers" Multiplicity="1" />
+          <End Role="Performance_staff" Type="Self.Performance_staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employers">
+              <PropertyRef Name="Employer_id" />
+            </Principal>
+            <Dependent Role="Performance_staff">
+              <PropertyRef Name="Employer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Performance_staff__Performance">
+          <End Role="Performance" Type="Self.Performance" Multiplicity="1" />
+          <End Role="Performance_staff" Type="Self.Performance_staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Performance">
+              <PropertyRef Name="Performance_id" />
+            </Principal>
+            <Dependent Role="Performance_staff">
+              <PropertyRef Name="Performance_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Performance_items">
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <End Role="Performance" Type="Self.Performance" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="DatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Employers" EntityType="Self.Employers" />
+          <EntitySet Name="Items" EntityType="Self.Items" />
+          <EntitySet Name="Performance" EntityType="Self.Performance" />
+          <EntitySet Name="Performance_staff" EntityType="Self.Performance_staff" />
+          <AssociationSet Name="FK_Performance_staff__Employers" Association="Self.FK_Performance_staff__Employers">
+            <End Role="Employers" EntitySet="Employers" />
+            <End Role="Performance_staff" EntitySet="Performance_staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Performance_staff__Performance" Association="Self.FK_Performance_staff__Performance">
+            <End Role="Performance" EntitySet="Performance" />
+            <End Role="Performance_staff" EntitySet="Performance_staff" />
+          </AssociationSet>
+          <AssociationSet Name="Performance_items" Association="Self.Performance_items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Performance" EntitySet="Performance" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities">
+          <EntitySetMapping Name="Employers">
+            <EntityTypeMapping TypeName="DatabaseModel.Employers">
+              <MappingFragment StoreEntitySet="Employers">
+                <ScalarProperty Name="Employer_id" ColumnName="Employer_id" />
+                <ScalarProperty Name="Employer_name" ColumnName="Employer_name" />
+                <ScalarProperty Name="Employer_last_name" ColumnName="Employer_last_name" />
+                <ScalarProperty Name="Employment_date" ColumnName="Employment_date" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="DatabaseModel.Items">
+              <MappingFragment StoreEntitySet="Items">
+                <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+                <ScalarProperty Name="Item_name" ColumnName="Item_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Performance">
+            <EntityTypeMapping TypeName="DatabaseModel.Performance">
+              <MappingFragment StoreEntitySet="Performance">
+                <ScalarProperty Name="Performance_id" ColumnName="Performance_id" />
+                <ScalarProperty Name="Performance_name" ColumnName="Performance_name" />
+                <ScalarProperty Name="Performace_visit_cost" ColumnName="Performace_visit_cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Performance_staff">
+            <EntityTypeMapping TypeName="DatabaseModel.Performance_staff">
+              <MappingFragment StoreEntitySet="Performance_staff">
+                <ScalarProperty Name="Performance_staff_id" ColumnName="Performance_staff_id" />
+                <ScalarProperty Name="Performance_id" ColumnName="Performance_id" />
+                <ScalarProperty Name="Employer_id" ColumnName="Employer_id" />
+                <ScalarProperty Name="Employer_type_of_work_id" ColumnName="Employer_type_of_work_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Performance_items" TypeName="DatabaseModel.Performance_items" StoreEntitySet="Performance_items">
+            <EndProperty Name="Items">
+              <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+            </EndProperty>
+            <EndProperty Name="Performance">
+              <ScalarProperty Name="Performance_id" ColumnName="Performance_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -26,12 +27,18 @@ namespace wpf_semestralny
         {
             InitializeComponent();
         }
+        
         private void MainWindow_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
+          DatabaseEntities login = new DatabaseEntities();
+        
+        
+
+
+       /* private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\Database; Initial Catalog=Database; Integrated Secutity=true;");
             try
@@ -63,7 +70,7 @@ namespace wpf_semestralny
             finally
             {
 
-            }
+            }*/
         }
     }
 }
